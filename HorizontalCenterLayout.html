@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水平居中布局</title>
+</head>
+
+<body>
+    <h1>一、行内元素水平居中</h1>
+    <pre class="box code">
+        .center {
+            text-align: center;
+        }
+        .border-box {
+            width: 50%;
+            min-height: 50px;
+            margin: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 3px black solid;
+        }
+        &lt;div class=&quot;box center&quot;&gt;
+            这是水平居中的效果
+        &lt;/div&gt;
+    </pre>
+    <div class="border-box center">
+        <div>这是水平居中的效果</div>
+    </div>
+    <div class="box">
+        <p>值得注意的是，这个方法只对行内元素生效。</p>
+        <p>行内元素只占据对应标签的边框所包含的空间。一般情况下，行内元素只能包含数据和其他行内元素。而块级元素可以包含行内元素和其他块级元素。默认情况下，行内元素不会以新行开始，而块级元素会新起一行。</p>
+        <p>行内元素常见的有文本text、图像img、按钮超链接等（p标签是块级元素）</p>
+    </div>
+    <h1>二、块级元素水平居中</h1>
+    <h2>1. 定宽型</h2>
+    <div class="box">
+        <p>其实这部分上面已经出现过了，即border-box，在固定宽度(宽度要小于父元素)的情况下，将margin设置为auto即可实现水平居中</p>
+    </div>
+    <h2>2. 不定宽型</h2>
+    <h3>1)使用display:table</h3>
+    <div class="center-table">
+        <div class="block"></div>
+    </div>
+    <h3>2)使用display:inline-block(可实现多个块级元素居中)</h3>
+    <div class="border-box center">
+        <div class="inlineblock-div block"></div>
+        <div class="inlineblock-div block"></div>
+    </div>
+    <h3>3)使用flex</h3>
+    <div class="border-box center-flex">
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+    <h3>4)使用absolute定位和margin</h3>
+    <h3>5)使用flex和transform</h3>
+    <h3></h3>
+</body>
+
+</html>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    h1,
+    h2,
+    h3 {
+        margin-left: 25%;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .code {
+        background: #ccc;
+        backdrop-filter: blur(10px);
+        border-radius: 3px;
+        text-align: left;
+    }
+
+    .box {
+        width: 50%;
+        min-height: 50px;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .border-box {
+        width: 50%;
+        min-height: 50px;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 3px black solid;
+    }
+
+    .center-table {
+        display: table;
+        margin: 0 auto;
+        border: 1px solid red;
+    }
+
+    .inlineblock-div {
+        display: inline-block;
+    }
+
+    .block {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+    }
+
+    .center-flex {
+        display: flex;
+        justify-content: center;
+    }
+</style>
